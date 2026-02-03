@@ -13,7 +13,8 @@ execute:
 
 
 ```{r}
-#| label: add-label-0
+#| label: add-tidyverse-package
+#install.packages("tidyverse")
 
 
 ```
@@ -63,6 +64,16 @@ In your activity, each of the following R chunks will cause an error and / or do
 0. Add a `setup` code chunk to your activity that loads the `tidyverse` package and hides the code output.  
 
 
+```{r}
+#| label: reading-in-packages
+#| echo: false
+#reading in packages 
+library(tidyverse)
+
+```
+
+
+
 1.  Create vectors containing the upper case letters, lower case letters, and some punctuation marks. add a label that indicate this code chunk creates the vectors of letters and punctuation.
 
 ```{r}
@@ -89,12 +100,14 @@ Using the above, we can complete the following 5 steps within a few lines of cod
 If you want to look at `my_symbols` click on it under the Environment Tab in the top right panel.  
 
 ```{r}
-#| label: add-label-1
-# add comment here
-
+#| label: create-single-vector
+# combine previous vectors into a single vector
+my_symbols<- tibble(symbols = c(lower_case,
+                                upper_case,
+                                punctuation)) |>
+  mutate(num = row_number())
 
 ```
-
 
 
 
